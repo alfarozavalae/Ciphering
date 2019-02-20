@@ -3,11 +3,11 @@ __author__ = 'heggens'
 This program implements three encryption algorithms:
 Simple cipher, stream cipher, and a block cipher
 '''
-alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-key_real = 'defghijklmnopqrstuvwyyz'
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+key_real = 'defghijklmnopqrstuvwyyzabc'
 
 
-def encryptSimpleCipher(pt, key):
+def encryptSimpleCipher(pt, key, filename):
     output = 0
     pt.read()
     for i in pt:
@@ -16,8 +16,33 @@ def encryptSimpleCipher(pt, key):
             output += alphabet[(old_letter + key) % 26]
         else:
             output += i         # Adds non-alphabet characters directly
+            f = open(filename, "w")
+            f.write(filename)
+            f.close()
+
     # TODO encrypt the simple cipher. Save the output to a new file and return it to the calling function.
-    print(output)
+
+def export_file(key):
+    """
+    Exports a file called filename
+
+    :param text_to_export: the string to be written to the exported file
+    :param filename: a string representing the name of the file to be exported to
+    """
+    output = ""
+    cipher = " "
+    for i in cipher:
+        if i.upper() in alphabet:
+            new_letter = alphabet.find(i.upper())
+            output += alphabet[new_letter - key % 26]
+        else:
+            output += i     # Adds non-alphabet characters directly
+    if __name__ == "__main__":
+        print("Message Decrypted")
+    return output           # Obviously this should output something else
+
+
+
 
 
 def encryptStreamCipher(plainText, key):
@@ -54,12 +79,15 @@ def main():
     #key = open('key.txt').read()
 
     # First, we'll assume we are the sender, and want to encrypt a message
-    plainText = open('plainText.txt', 'r')
+    plainText = open('plain.txt', 'r')
+    encryptSimpleCipher(plainText, 3, "newone.txt")
 
-    outputCipher = encryptSimpleCipher(plainText, 3)
+
+
+
+
     #outputCipher = encryptStreamCipher(plainText, key)
     #outputCipher = encryptBlockCipher(plainText, key)
-    print("The encrypted message is: {}".format(outputCipher))
 
     ########################################################################
 
