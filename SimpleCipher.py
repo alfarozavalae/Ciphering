@@ -1,3 +1,10 @@
+#############################################################################################3
+# some parts of this code were taken from the code shared with our class:
+# owners are: Aleksander Krasnov and Elyor Tukhtasinov.
+
+###############################################################################################
+
+
 def encrypt(text,s):
     result = ""
 

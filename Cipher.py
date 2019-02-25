@@ -1,3 +1,9 @@
+#############################################################################################3
+# this code was shared with our class and the owners are:
+# Aleksander Krasnov and Elyor Tukhtasinov.
+
+###############################################################################################
+
 import random
 import sys
 
